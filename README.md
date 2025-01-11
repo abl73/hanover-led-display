@@ -17,3 +17,4 @@ Then it's time to start the display via several python codes:
 - First is a simple text (hantext.py), where text is converted to an image. This requires a font to be loaded (I downloaded the hanover-11x19.ttf font, because it fitted easily with my display).
 - Second code is a mqtt client version. This let the screen be updated when a new message arrives in the MQTT server. I use that mostly to link to my Home Assistant MQTT broker, where I can easily include sensor-data. An example sent from Home Assistant: payload: "Water: {{ ((states('sensor.water_dagelijks_verbruik') | default(0)) | float * 1000) | round(0) }}L"
 - Third one is the conversion of a picture. I used a black and white picture of a skyline, which was visually only very roughly like the dimensions of the Hanover display. The picture (skyline.jpg) was 628x194 pixels. This is then converted to the 144x19 dimensions. 
+![Source picture](skyline.jpg)
