@@ -19,3 +19,17 @@ Then it's time to start the display via several python codes:
 - Third one is the conversion of a picture. I used a black and white picture of a skyline, which was visually only very roughly like the dimensions of the Hanover display. The picture (skyline.jpg) was 628x194 pixels. This is then converted to the 144x19 dimensions. 
 ![Source picture](skyline.jpg)
 ![After](skylineafter.jpg)
+
+Also converted the code to work with a Raspberry Pi 4b. For this, some steps were needed (at least in my setup and to be able to display text, images and use mqtt):
+- In RPI start terminal
+- Make a directory under Downloads and name that hanover2 (or any other name) and go to that directory
+- python3 -m venv flipdot_env
+- Source flipdot_env/bin/activate
+- Pip install pyflipdot <<takes some time but installs numpy, pyserial and pyflipdot>>
+- python3 -m pip install Pillow
+- pip install paho-mqtt
+
+The codes for RPI are:
+- rpitext.py; same as above for my pc version
+- rpimqtt2lines.py; slightly changed version to the pc version. This looks at the received mqtt message, when 2 lines are received, the smaller font (hanover6x8.ttf) is used. When 1 line is received the bigger font is displayed (hanover-11x19.ttf).
+- rpipicture.py; same as above
