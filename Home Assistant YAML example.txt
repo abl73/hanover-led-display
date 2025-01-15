@@ -1,0 +1,19 @@
+alias: Hanover LED - waterverbruik
+description: ""
+triggers:
+  - entity_id:
+      - sensor.water_dagelijks_verbruik
+    trigger: state
+conditions: []
+actions:
+  - data:
+      qos: 0
+      retain: false
+      topic: hanover/display
+      payload: >-
+        <water.png> Verbruik: {{(states("sensor.water_dagelijks_verbruik") |
+        float * 1000 )| round(1)}} liter  Kosten:
+        {{(states("sensor.water_dagelijks_verbruik") | float * 3.79 ) |
+        round(2)}} EUR
+    action: mqtt.publish
+mode: single
