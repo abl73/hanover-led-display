@@ -1,7 +1,9 @@
 # hanover-led-display
 Show all kind of data or pictures on a Hanover LED display via RS485
 
-Since time ago I bought a Hanover display (that was meant to be used as a bus display). I also have a flipdot bus display, but this one is the LED version.
+https://github.com/user-attachments/assets/dce5968c-231f-400c-a54e-3ffc3f423e9a
+
+Some time ago I bought a Hanover display (that was meant to be used as a bus display). I also have a flipdot bus display, but this one is the LED version.
 
 Some more details about my setup:
 - Resolution: 144x19 pixels (amber leds)
@@ -33,3 +35,5 @@ The codes for RPI are:
 - rpitext.py; same as above for my pc version
 - rpimqtt2lines.py; slightly changed version to the pc version. This looks at the received mqtt message, when 2 lines are received, the smaller font (hanover6x8.ttf) is used. When 1 line is received the bigger font is displayed (hanover-11x19.ttf).
 - rpipicture.py; same as above
+- rpi.py; more enhanced program. Can use emoji-icons (when saved in a subdirectory 'emoji_icons' and in bmp format, some examples added), converts pictures to the sign height, both can be used with text (that either is shown in one line or split in two when text is too long). For the emojis the format of the mqtt message should be [icon-name]. So when the emoji 'joy' is needed the input should be [joy] and refers then to the file \emoji_icons\joy.bmp. Pictures should be between < >, so when the mqtt message contains <picture.png> it automatically converts the picture.png in the same directory. Text should be put in as plain text. Example mqtt message: <logo.png> [angry] Hello World will result in the converted picture followed by the angry emoji and after that the text Hello World.
+By using mqtt, I managed to get Home Assistant data easily displayed on the screen. Some example YAML code (to display the icon of water followed by the daily usage and the daily costs can be found in the Home Assistant YAML example file.
