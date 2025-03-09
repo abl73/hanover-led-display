@@ -26,10 +26,12 @@ Also converted the code to work with a Raspberry Pi 4b. For this, some steps wer
 - In RPI start terminal
 - Make a directory under Downloads and name that hanover2 (or any other name) and go to that directory
 - python3 -m venv flipdot_env
-- Source flipdot_env/bin/activate
-- Pip install pyflipdot <<takes some time but installs numpy, pyserial and pyflipdot>>
+- bash
+- source flipdot_env/bin/activate
+- pip install pyflipdot <<takes some time but installs numpy, pyserial and pyflipdot>>
 - python3 -m pip install Pillow
 - pip install paho-mqtt
+- python rpimqttpic.py
 
 The codes for RPI are:
 - rpitext.py; same as above for my pc version
